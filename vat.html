@@ -1,0 +1,46 @@
+<html>
+<head>
+
+
+<script>
+function oblicz(operator) 
+{
+    var cena = document.getElementById('cena').value;
+    var ilosc = document.getElementById('ilosc').value; 
+	var vat = 1.23;
+	var podatek= 1.18;
+ 
+    switch(operator) 
+    {
+        case 'podatek':
+            var wynik = parseFloat(cena) * parseFloat(ilosc) *vat*podatek;         
+        break;  
+        case 'netto':
+            var wynik = parseFloat(cena) * parseFloat(ilosc);         
+        break;  
+        case 'vat':
+            var wynik = parseFloat(cena) * parseFloat(ilosc) * vat;         
+        break;    
+    }
+ 
+    document.getElementById('wynik').value = wynik;
+}
+</script>
+</head>
+<body>
+<form id="oblicz">
+    Cena:
+    <input type="text" id="cena"  />
+    <br>
+    Ilosc:
+    <input type="text" id="ilosc"  />
+    <br>
+     
+    <button type="button" onclick="oblicz(this.innerHTML)">podatek</button>
+    <button type="button" onclick="oblicz(this.innerHTML)">netto</button>   
+    <button type="button" onclick="oblicz(this.innerHTML)">vat</button>
+    <br>
+    Wynik: <input type="text" id="wynik"  disabled="disabled" />
+</form>
+</body>
+</html>
